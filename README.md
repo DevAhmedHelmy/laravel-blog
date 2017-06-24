@@ -20,7 +20,7 @@ Laravel Blog
 ```
 #### 4rth video
 ```
-    //creaing controller via composer
+    //creating controller via composer
     php artisan make:controller PagesController
 
 ```
