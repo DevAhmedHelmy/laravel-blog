@@ -30,3 +30,9 @@ Laravel Blog
 - bootstrap link
 [http://getbootstrap.com/components](http://getbootstrap.com/components)
 
+### 8 video
+```
+    //creating model with migration via artisan
+    php artisan make:model Post --migration
+```
+
