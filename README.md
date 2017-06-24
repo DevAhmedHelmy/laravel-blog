@@ -25,12 +25,12 @@ Laravel Blog
 
 ```
 
-### 5.5 video
+### 5^1/2th video
 
 - bootstrap link
 [http://getbootstrap.com/components](http://getbootstrap.com/components)
 
-### 8 video
+### 8th video
 ```
     //creating model with migration via artisan
     php artisan make:model Post --migration
