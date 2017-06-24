@@ -26,8 +26,7 @@ Laravel Blog
 ```
 
 ### 5.5 video
-```
-    //bootstrap link
+
+    - bootstrap link
     [http://getbootstrap.com/components](http://getbootstrap.com/components)
 
-```
