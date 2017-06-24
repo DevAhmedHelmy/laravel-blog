@@ -18,7 +18,16 @@ class PagesController extends Controller
 
     public function getAbout()
     {
-        return view('pages.about');
+        $firstname='Lloric';
+        $lastname='Garcia';
+        $fullname=$firstname.' '.$lastname;
+        
+        $data=array(
+            'fullname'=>$fullname,
+            'email'=>'email@email.com'
+        );
+
+        return view('pages.about')->with($data);
     }
 
     public function getContact()

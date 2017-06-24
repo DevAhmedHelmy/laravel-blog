@@ -79,9 +79,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    About
+                    About {{ $fullname }}
                 </div>
-                <p>I Like to make Laravel Application</p>
+                <p>Email me at {{ $email }}</p>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
