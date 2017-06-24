@@ -18,3 +18,9 @@ Laravel Blog
     php artisan serve
 
 ```
+#### 4rth video
+```
+    //creaing controller via composer
+    php artisan make:controller PagesController
+
+```
