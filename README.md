@@ -8,6 +8,8 @@ Laravel Blog
 ```
     //installing laravel via composer
     composer create-project --prefer-dist laravel/laravel laravel-blog
+    //or
+    laravel new laravel-blog
 
     //change directory to the project
     cd laravel-blog
