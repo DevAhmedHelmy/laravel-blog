@@ -25,19 +25,19 @@ Laravel Blog
 
 ```
 
-### 5^1/2th video
+#### 5^1/2th video
 
 - bootstrap link
 [http://getbootstrap.com/components](http://getbootstrap.com/components)
 
-### 8th video
+#### 8th video
 ```
     //creating model with migration via artisan
     php artisan make:model Post --migration
     //or only migration
     php artisan make:migration create_posts_table
 ```
-### 9th video
+#### 9th video
 ```php
     //setting default string length in 'app/Providers/AppServicePorvider.php'
     //before we get errors
