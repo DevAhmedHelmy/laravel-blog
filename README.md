@@ -51,4 +51,9 @@ Laravel Blog
     //migrate via artisan
     php artisan migrate
 ```
+#### 10th video
+```
+    //via composer creating controller with CRUD
+     php artisan make:controller PostController --resource
 
+```
