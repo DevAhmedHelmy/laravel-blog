@@ -20,7 +20,7 @@ Laravel Blog
 ```
 #### 4rth video
 ```
-    //creating controller via composer
+    //creating controller via artisan
     php artisan make:controller PagesController
 
 ```
@@ -53,7 +53,7 @@ Laravel Blog
 ```
 #### 10th video
 ```
-    //via composer creating controller with CRUD
+    //via artisan creating controller with CRUD
      php artisan make:controller PostController --resource
 
 ```
