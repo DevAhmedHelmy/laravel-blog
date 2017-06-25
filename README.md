@@ -56,4 +56,7 @@ Laravel Blog
     //via artisan creating controller with CRUD
      php artisan make:controller PostController --resource
 
+     //via artisan you can see all routes
+     php artisan route:list
+
 ```
