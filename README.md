@@ -3,6 +3,8 @@ Laravel Blog
 
 ### I have learned this laravel blog from this youtube playlist [https://www.youtube.com/playlist?list=PLwAKR305CRO-Q90J---jXVzbOd4CDRbVx](https://www.youtube.com/playlist?list=PLwAKR305CRO-Q90J---jXVzbOd4CDRbVx)
 
+## validation library used
+- http://parsleyjs.org/
 
 #### 1st video
 ```php
