@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Post;
 class PagesController extends Controller
 {
+    
     public function getIndex()
     {
-        # proccess vaaribles data or param
-        # talk to the model
-        # recieve from the model
-        # compile or proccess data from the model if needed
-        # pass that data to the correct view
-        return view('pages.welcome');
+        $posts=Post::orderBy('id','DESC')->limit(4)->get();
+        return view('pages.welcome')->withPosts($posts);
     }
 
     public function getAbout()
