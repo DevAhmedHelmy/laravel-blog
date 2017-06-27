@@ -103,3 +103,24 @@ Laravel Blog
         // ...
     ],
 ```
+#### 22th video
+```php
+    //try to search in laravel documentation for dropping column (maybe online doc updated)
+
+    //to update composer file
+    composer self update
+
+    //add this in compaser.json then run via composer
+    composer update
+
+    //droping column in dev environment
+
+    "require-dev": {
+         "doctrine/dbal": "*"
+    }
+
+    //to update table from database run this via artisan
+    //drop all then mirate again
+    php artisan migrate:refresh
+
+```
