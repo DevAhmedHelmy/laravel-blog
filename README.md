@@ -124,3 +124,24 @@ Laravel Blog
     php artisan migrate:refresh
 
 ```
+#### 27th video
+```php
+    // I've just create a test auth, in the video has already controller for Auth,
+    // so I made my own just to make sure to follow video tutorial
+
+    //controllers
+    App\Http\Controllers\auth_test
+    
+    //views
+    auth_test/
+
+    //routes
+    // Authentication Routes
+    Route::get('auth/login','auth_test\AuthTestController@getLogin');
+    Route::post('auth/login','auth_test\AuthTestController@getLogin');
+    Route::get('auth/logout','auth_test\AuthTestController@getLogout');
+
+    // Registration routes
+    Route::get('auth/register','auth_test\AuthTestController@getRegister');
+    Route::post('auth/register','auth_test\AuthTestController@getRegister');
+```

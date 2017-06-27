@@ -22,23 +22,36 @@
 // Route::get('/contact', function () {
 //     return view('contact');
 // });
+Route::group(['middleware'=>['web']],function(){
 
-Route::get('/', 'PagesController@getIndex');
-Route::get('/about', 'PagesController@getAbout');
-Route::get('/contact', 'PagesController@getContact');
+    // Authentication Routes
+    Route::get('auth/login','auth_test\AuthTestController@getLogin');
+    Route::post('auth/login','auth_test\AuthTestController@getLogin');
+    Route::get('auth/logout','auth_test\AuthTestController@getLogout');
 
-Route::get('blog/{slug}',['as'=>'blog.single','uses'=>'BlogController@getSingle'])
-/*
+    // Registration routes
+    Route::get('auth/register','auth_test\AuthTestController@getRegister');
+    Route::post('auth/register','auth_test\AuthTestController@getRegister');
 
- \w - any letter character
- \d - any number character
- \- - -
- \_ - _
- + - how many
+    // Others
+    Route::get('/', 'PagesController@getIndex');
+    Route::get('/about', 'PagesController@getAbout');
+    Route::get('/contact', 'PagesController@getContact');
 
- */ 
-->where('slug','[\w\d\-\_]+');
+    Route::get('blog/{slug}',['as'=>'blog.single','uses'=>'BlogController@getSingle'])
+    /*
 
-Route::get('blog',['as'=>'blog.index','uses'=> 'BlogController@getIndex']);
+    \w - any letter character
+    \d - any number character
+    \- - -
+    \_ - _
+    + - how many
 
-Route::resource('posts','PostController');
+    */ 
+    ->where('slug','[\w\d\-\_]+');
+
+    Route::get('blog',['as'=>'blog.index','uses'=> 'BlogController@getIndex']);
+
+    Route::resource('posts','PostController');
+
+});
