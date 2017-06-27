@@ -10,6 +10,10 @@
             <div class="col-md-8">  
                 {{ Form::label('title','Title:') }}      
                 {{ Form::text('title',null,array('class'=>'form-control input-lg','required'=>'','maxlength'=>"255")) }}
+
+                {{ Form::label('slug','Slug:',['class'=>'form-spaceing-top']) }}      
+                {{ Form::text('slug',null,array('class'=>'form-control ','required'=>'','minlength'=>"5",'maxlength'=>"255")) }}
+
                 {{ Form::label('body','Body:',['class'=>'form-spaceing-top']) }}
                 {{ Form::textarea('body',null,array('class'=>'form-control','required'=>'')) }}
             </div>

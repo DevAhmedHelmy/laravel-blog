@@ -43,12 +43,14 @@ class PostController extends Controller
         //validate
         $this->validate($request,array(
             'title'=>'required|max:255',
+            'slug'=>'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'body'=>'required'
         ));
 
         //store in database
         $post=new Post();
         $post->title=$request->title;
+        $post->slug=$request->slug;
         $post->body=$request->body;
         $post->save();
 
@@ -97,6 +99,7 @@ class PostController extends Controller
             // validate the data
             $this->validate($request,array(
                 'title'=>'required|max:255',
+                'slug'=>'required|alpha_dash|min:5|max:255|unique:posts,slug',
                 'body'=>'required'
             ));
 
@@ -104,6 +107,7 @@ class PostController extends Controller
             $post=Post::find($id);
             $post->title=$request->input('title');
             $post->body=$request->input('body');
+            $post->slug=$request->input('slug');
             $post->save();
 
             // set flash with success message
