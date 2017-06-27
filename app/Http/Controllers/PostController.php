@@ -96,15 +96,22 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+            $slugUniqueValdation='|unique:posts,slug';
+
+            $post=Post::find($id);
+
+            if($post->slug == $request->slug){
+                $slugUniqueValdation='';
+            }
+            
             // validate the data
             $this->validate($request,array(
                 'title'=>'required|max:255',
-                'slug'=>'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                'slug'=>'required|alpha_dash|min:5|max:255'.$slugUniqueValdation,
                 'body'=>'required'
             ));
 
             //save the data to the database
-            $post=Post::find($id);
             $post->title=$request->input('title');
             $post->body=$request->input('body');
             $post->slug=$request->input('slug');
