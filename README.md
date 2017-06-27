@@ -108,7 +108,7 @@ Laravel Blog
     //try to search in laravel documentation for dropping column (maybe online doc updated)
 
     //to update composer file
-    composer self update
+    composer self-update
 
     //add this in compaser.json then run via composer
     composer update
