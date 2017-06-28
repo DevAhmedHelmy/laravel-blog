@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\Tag;
 use App\Category;
 use Session;
 
@@ -40,7 +41,8 @@ class PostController extends Controller
     public function create()
     {
         $categoriesdropdown=Category::dropdown();
-        return view('posts.create')->withCategoriesdropdown($categoriesdropdown);
+        $tagsdropdown=Tag::dropdown();
+        return view('posts.create')->withCategoriesdropdown($categoriesdropdown)->withTagsdropdown($tagsdropdown);
     }
 
     /**
@@ -66,6 +68,8 @@ class PostController extends Controller
         $post->category_id=$request->category_id;
         $post->body=$request->body;
         $post->save();
+
+        $post->tags()->sync($request->tags,FALSE);//wheter to override the extisting association
 
         Session::flash('success','The blog post was successfully save!');
 
@@ -97,8 +101,9 @@ class PostController extends Controller
         //find the post in the database and save as a var
         $post=Post::find($id);
         $categoriesdropdown=Category::dropdown();
+        $tagsdropdown=Tag::dropdown();
         //return the view and post in the var we previouly created
-        return view('posts.edit')->withPost($post)->withCategoriesdropdown($categoriesdropdown);
+        return view('posts.edit')->withPost($post)->withCategoriesdropdown($categoriesdropdown)->withTagsdropdown($tagsdropdown);
     }
 
     /**
@@ -132,6 +137,8 @@ class PostController extends Controller
             $post->category_id=$request->input('category_id');
             $post->slug=$request->input('slug');
             $post->save();
+
+            $post->tags()->sync($request->tags);//wheter to override the extisting association //2ns param default TRUE
 
             // set flash with success message
             Session::flash('success','Post Updated!');

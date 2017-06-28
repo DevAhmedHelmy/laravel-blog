@@ -2,6 +2,7 @@
 @section('title','Create New Post')
 @section('stylesheet')
     {!! Html::style('css.parsley.css') !!}
+    {!! Html::style('css.select2.min.css') !!}
 @endsection
 @section('content')
     <div class="row">
@@ -19,6 +20,9 @@
                 {{ Form::label('category_id','Category:') }}
                 {{ Form::select('category_id',$categoriesdropdown, null, ['placeholder' => 'Pick a size...','class'=>'form-control']) }}
 
+                {{ Form::label('tags','Tags:') }}
+                {{ Form::select('tags[]',$tagsdropdown, null, ['class'=>'form-control select2-multi','multiple'=>'multiple']) }}
+
                 {{ Form::label('body','Body:') }}
                 {{ Form::textarea('body',null,array('class'=>'form-control','required'=>'')) }}
 
@@ -28,5 +32,9 @@
     </div>
 @endsection
 @section('script')
-    {!! Html::script('js.parsley.js') !!}
+    {!! Html::script('js.select2.min.js') !!}
+    {!! Html::script('js.parsley.min.js') !!}
+    <script type="text/javascript">
+        $(".select2-multi").select2();
+    </script>
 @endsection

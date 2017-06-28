@@ -6,6 +6,16 @@
         <div class="col-md-8">        
             <h1>{{ $post->title }}</h1>
             <p class="lead">{{ $post->body }}</p>
+            <hr>
+            <div class="tags">
+                @if(count($post->tags)>0)
+                    @foreach($post->tags as $tag)
+                        <span class="label label-default">{{ $tag->name }}</span>
+                    @endforeach 
+                @else
+                    <p>No tags found.</p>
+                @endif
+            </div>
         </div>
         <div class="col-md-4">
             <div class="well">

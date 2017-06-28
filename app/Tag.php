@@ -11,6 +11,14 @@ class Tag extends Model
     */
     public function posts()
     {
-        $this->belongsToMany('App\Post','post_tag');
+       return $this->belongsToMany('App\Post');
+    }
+    /**
+     * for <select></select>
+     *
+     * @var array
+     */
+    public static function dropdown(){
+        return Tag::pluck('name','id');
     }
 }

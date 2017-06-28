@@ -157,3 +157,13 @@ Laravel Blog
     // exclude one route
     Route::resource('categories','CategoryController',['except'=>['create']]);
 ```
+
+#### 37th
+```php
+    //multiple select js
+    https://github.com/select2/select2
+
+    //then just copy the files inside dist to public folder in current app
+    dist/css/select2.min.css
+    dist/js/select2.min.js
+```
