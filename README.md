@@ -136,4 +136,12 @@ Laravel Blog
 -   use this as email testing for reset password
 -   https://mailtrap.io
 
+#### 30.5th video
+```php
+    // for genarating controllers, views for authintication
+    php artisan make:auth
+
+    //then dont forget run maigration, to set tables in database
+    php artisan migrate
+```
 
