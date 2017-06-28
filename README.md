@@ -152,4 +152,8 @@ Laravel Blog
     //add column with existing table
     php artisan make:migration add_category_id_to_posts --table=posts
 ```
-
+#### 32th video
+```php
+    // exclude one route
+    Route::resource('categories','CategoryController',['except'=>['create']]);
+```

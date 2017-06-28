@@ -27,6 +27,8 @@ Route::group(['middleware'=>['web']],function(){
     // Authentication Routes
     Auth::routes();
 
+    // Categories
+    Route::resource('categories','CategoryController',['except'=>['create']]);
     // Others
     Route::get('/', 'PagesController@getIndex');
     Route::get('/about', 'PagesController@getAbout');
