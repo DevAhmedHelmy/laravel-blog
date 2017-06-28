@@ -15,7 +15,7 @@
                 {{ Form::label('remember','Remeber Me') }}
 
                 <br />
-                {{ Form::submit('Login',['class'=>'btn btn-primary']) }}
+                {{ Form::submit('Login',['class'=>'btn btn-primary btn-block']) }}
             {!! Form::close() !!}
         </div>
     </div>

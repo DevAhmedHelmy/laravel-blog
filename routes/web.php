@@ -25,13 +25,7 @@
 Route::group(['middleware'=>['web']],function(){
 
     // Authentication Routes
-    Route::get('auth/login','auth_test\AuthTestController@getLogin');
-    Route::post('auth/login','auth_test\AuthTestController@getLogin');
-    Route::get('auth/logout','auth_test\AuthTestController@getLogout');
-
-    // Registration routes
-    Route::get('auth/register','auth_test\AuthTestController@getRegister');
-    Route::post('auth/register','auth_test\AuthTestController@getRegister');
+    Auth::routes();
 
     // Others
     Route::get('/', 'PagesController@getIndex');

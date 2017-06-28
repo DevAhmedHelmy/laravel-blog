@@ -10,6 +10,15 @@ use Session;
 class PostController extends Controller
 {
     /**
+     * 
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['index']]);
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
