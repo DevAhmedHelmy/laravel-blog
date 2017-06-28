@@ -6,6 +6,9 @@ Laravel Blog
 ## validation library used
 - http://parsleyjs.org/
 
+## Laravel Framework
+- 5.4.2
+
 #### 1st video
 ```php
     //installing laravel via composer
