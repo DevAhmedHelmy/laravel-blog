@@ -145,3 +145,11 @@ Laravel Blog
     php artisan migrate
 ```
 
+#### 31th video
+```php
+    //creating model with migration via artisan with table name
+    php artisan make:migration create_categories_table --create=categories
+    //add column with existing table
+    php artisan make:migration add_category_id_to_posts --table=posts
+```
+
