@@ -29,6 +29,8 @@ Route::group(['middleware'=>['web']],function(){
 
     // Categories
     Route::resource('categories','CategoryController',['except'=>['create']]);
+    // Tag
+    Route::resource('tags','TagController');
     // Others
     Route::get('/', 'PagesController@getIndex');
     Route::get('/about', 'PagesController@getAbout');
