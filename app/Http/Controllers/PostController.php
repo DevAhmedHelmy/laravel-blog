@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\Category;
 use Session;
 
 class PostController extends Controller
@@ -38,7 +39,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $categoriesdropdown=Category::dropdown();
+        return view('posts.create')->withCategoriesdropdown($categoriesdropdown);
     }
 
     /**
@@ -53,6 +55,7 @@ class PostController extends Controller
         $this->validate($request,array(
             'title'=>'required|max:255',
             'slug'=>'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'category_id'=>'required|integer',
             'body'=>'required'
         ));
 
@@ -60,6 +63,7 @@ class PostController extends Controller
         $post=new Post();
         $post->title=$request->title;
         $post->slug=$request->slug;
+        $post->category_id=$request->category_id;
         $post->body=$request->body;
         $post->save();
 
@@ -92,8 +96,9 @@ class PostController extends Controller
     {
         //find the post in the database and save as a var
         $post=Post::find($id);
+        $categoriesdropdown=Category::dropdown();
         //return the view and post in the var we previouly created
-        return view('posts.edit')->withPost($post);
+        return view('posts.edit')->withPost($post)->withCategoriesdropdown($categoriesdropdown);
     }
 
     /**
@@ -117,12 +122,14 @@ class PostController extends Controller
             $this->validate($request,array(
                 'title'=>'required|max:255',
                 'slug'=>'required|alpha_dash|min:5|max:255'.$slugUniqueValdation,
+                'category_id'=>'required|integer',
                 'body'=>'required'
             ));
 
             //save the data to the database
             $post->title=$request->input('title');
             $post->body=$request->input('body');
+            $post->category_id=$request->input('category_id');
             $post->slug=$request->input('slug');
             $post->save();
 

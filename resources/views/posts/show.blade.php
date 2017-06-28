@@ -13,6 +13,11 @@
                     <label>Url Slug:</label>
                     <p><a href="{{ url('blog/'.$post->slug) }}">{{ url('blog/'.$post->slug) }}</a></p>
                 </div>
+                
+                 <div class="dl-horizontal">
+                    <label>Category:</label>
+                    <p>{{ $post->category->name }}</p>
+                </div>
 
                 <div class="dl-horizontal">
                     <label>Created At:</label>

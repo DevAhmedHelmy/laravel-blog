@@ -14,6 +14,9 @@
                 {{ Form::label('slug','Slug:',['class'=>'form-spaceing-top']) }}      
                 {{ Form::text('slug',null,array('class'=>'form-control ','required'=>'','minlength'=>"5",'maxlength'=>"255")) }}
 
+                {{ Form::label('category_id','Category:') }}
+                {{ Form::select('category_id',$categoriesdropdown, $post->category_id, ['class'=>'form-control']) }}
+
                 {{ Form::label('body','Body:',['class'=>'form-spaceing-top']) }}
                 {{ Form::textarea('body',null,array('class'=>'form-control','required'=>'')) }}
             </div>

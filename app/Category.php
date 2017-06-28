@@ -12,4 +12,12 @@ class Category extends Model
     {
         return $this->hasMany('App\Post');
     }
+   /**
+     * for <select></select>
+     *
+     * @var array
+     */
+    public static function dropdown(){
+        return Category::pluck('name','id');
+    }
 }
