@@ -10,6 +10,7 @@ use App\Category;
 use App\User;
 use Auth;
 use Session;
+use Purifier;
 
 class PostController extends Controller
 {
@@ -70,7 +71,7 @@ class PostController extends Controller
         $post->title=$request->title;
         $post->slug=$request->slug;
         $post->category_id=$request->category_id;
-        $post->body=$request->body;
+        $post->body=Purifier::clean($request->body);
 
         $post->user()->associate($user);
 
@@ -149,7 +150,7 @@ class PostController extends Controller
 
             //save the data to the database
             $post->title=$request->input('title');
-            $post->body=$request->input('body');
+            $post->body=Purifier::clean($request->input('body'));
             $post->category_id=$request->input('category_id');
             $post->slug=$request->input('slug');
             $post->save();

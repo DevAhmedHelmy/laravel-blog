@@ -175,3 +175,7 @@ Laravel Blog
 #### 43
 - doc editor
 - https://www.tinymce.com/docs/get-started/basic-setup/
+
+#### 45
+- security
+- https://github.com/mewebstudio/Purifier
