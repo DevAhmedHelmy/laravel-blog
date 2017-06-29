@@ -171,3 +171,7 @@ Laravel Blog
 #### 41.5
 - image src sample
 - https://en.gravatar.com/site/implement/images/
+
+#### 43
+- doc editor
+- https://www.tinymce.com/docs/get-started/basic-setup/

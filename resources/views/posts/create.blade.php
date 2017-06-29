@@ -3,6 +3,15 @@
 @section('stylesheet')
     {!! Html::style('css.parsley.css') !!}
     {!! Html::style('css.select2.min.css') !!}
+
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>
+            tinymce.init({
+                selector: 'textarea',  // change this value according to your HTML
+                plugins: 'link code',
+                menubar: false
+            });
+    </script>
 @endsection
 @section('content')
     <div class="row">
@@ -24,7 +33,7 @@
                 {{ Form::select('tags[]',$tagsdropdown, null, ['class'=>'form-control select2-multi','multiple'=>'multiple']) }}
 
                 {{ Form::label('body','Body:') }}
-                {{ Form::textarea('body',null,array('class'=>'form-control','required'=>'')) }}
+                {{ Form::textarea('body',null,array('class'=>'form-control')) }}
 
                 {{ Form::submit('Create Post',array('class'=>'btn btn-success btn-block','style'=>'margin-top:20px')) }}
             {!! Form::close() !!}
