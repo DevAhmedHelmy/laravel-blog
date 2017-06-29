@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-md-6">
                         {{ Form::label('email','Email:') }}
-                        {{ Form::text('email',NULL,['class'=>'form-control']) }}
+                        {{ Form::email('email',NULL,['class'=>'form-control']) }}
                     </div>
                     <div class="col-md-12">
                         {{ Form::label('comment','Comment:') }}
