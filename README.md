@@ -167,6 +167,3 @@ Laravel Blog
     dist/css/select2.min.css
     dist/js/select2.min.js
 ```
-#### 41
-- I just use id not email to refence a user from comments
-[my suggest from original creator](https://github.com/jacurtis/laravel-blog-tutorial/issues/18)

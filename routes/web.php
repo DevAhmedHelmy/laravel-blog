@@ -52,5 +52,8 @@ Route::group(['middleware'=>['web']],function(){
     Route::get('blog',['as'=>'blog.index','uses'=> 'BlogController@getIndex']);
 
     Route::resource('posts','PostController');
+    Route::resource('comments','CommentsController',['except'=>['create']]);//create is on next line
+    //seperated  because post_id will associated in comments controller
+    Route::post('comments/{post_id}',['as'=>'comments.store','uses'=>'CommentsController@store']);
 
 });
