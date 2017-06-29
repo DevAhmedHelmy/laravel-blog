@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTagTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreatePostTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_tag', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->text('comment');
+            $table->boolean('approved');
             $table->integer('post_id')->unsigned();
-            $table->integer('tag_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->timestamps();
 
-            //not all compatible with this
             $table->foreign('post_id')->references('id')->on('posts');
-            $table->foreign('tag_id')->references('id')->on('tags');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -30,10 +33,10 @@ class CreatePostTagTable extends Migration
      * @return void
      */
     public function down()
-    {
+    { 
         Schema::create('users', function (Blueprint $table) {
-            $table->dropForeign(['post_id','tag_id']);
+            $table->dropForeign(['post_id','user_id']);
         });
-        Schema::dropIfExists('post_tag');
+        Schema::dropIfExists('comments');
     }
 }
