@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
 use App\Category;
+use App\User;
+use Auth;
 use Session;
 
 class PostController extends Controller
@@ -55,11 +57,13 @@ class PostController extends Controller
     {
         //validate
         $this->validate($request,array(
-            'title'=>'required|alpha_dash|max:255',
+            'title'=>'required|string|max:255',
             'slug'=>'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'category_id'=>'required|integer',
             'body'=>'required'
         ));
+
+        $user = User::find(Auth::user()->id);
 
         //store in database
         $post=new Post();
@@ -67,6 +71,9 @@ class PostController extends Controller
         $post->slug=$request->slug;
         $post->category_id=$request->category_id;
         $post->body=$request->body;
+
+        $post->user()->associate($user);
+
         $post->save();
 
         $post->tags()->sync($request->tags,FALSE);//wheter to override the extisting association
@@ -100,6 +107,11 @@ class PostController extends Controller
     {
         //find the post in the database and save as a var
         $post=Post::find($id);
+
+        if(Auth::user()->id !== $post->user_id){
+            return redirect()->route('posts.index');
+        }
+
         $categoriesdropdown=Category::dropdown();
         $tagsdropdown=Tag::dropdown();
         //return the view and post in the var we previouly created
@@ -119,13 +131,17 @@ class PostController extends Controller
 
             $post=Post::find($id);
 
+            if(Auth::user()->id !== $post->user_id){
+                return redirect()->route('posts.index');
+            }
+
             if($post->slug == $request->slug){
                 $slugUniqueValdation='';
             }
             
             // validate the data
             $this->validate($request,array(
-                'title'=>'required|alpha_dash|max:255',
+                'title'=>'required|string|max:255',
                 'slug'=>'required|alpha_dash|min:5|max:255'.$slugUniqueValdation,
                 'category_id'=>'required|integer',
                 'body'=>'required'
@@ -156,6 +172,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post=Post::find($id);
+
+        if(Auth::user()->id !== $post->user_id){
+            return redirect()->route('posts.index');
+        }
 
         //delete data related
         $post->tags()->detach();

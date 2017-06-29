@@ -31,8 +31,10 @@
                             <td>{{ substr(strip_tags($post->body),0,50) }}{{ (strlen(strip_tags($post->body))>50)?'...':'' }}</td>
                             <td>{{ date('M j, Y h:ia',strtotime($post->created_at)) }}</td>
                             <td>
-                                {{ Html::linkRoute('posts.show','View',array($post->id),array('class'=>'btn btn-default btn-sm')) }}   
-                                {{ Html::linkRoute('posts.edit','Edit',array($post->id),array('class'=>'btn btn-default btn-sm')) }}                            
+                                {{ Html::linkRoute('posts.show','View',array($post->id),array('class'=>'btn btn-default btn-sm')) }} 
+                                @if(Auth::user()->id===$post->user_id)  
+                                    {{ Html::linkRoute('posts.edit','Edit',array($post->id),array('class'=>'btn btn-default btn-sm')) }}  
+                                @endif                          
                             </td>
                         </tr>
                     @endforeach

@@ -68,16 +68,18 @@
                     <p>{{ date('M j, Y h:ia',strtotime($post->updated_at)) }}</p>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-sm-6">
-                        {{ Html::linkRoute('posts.edit','Edit',array($post->id),array('class'=>'btn btn-primary btn-block')) }}
+                @if(Auth::user()->id === $post->user_id)
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ Html::linkRoute('posts.edit','Edit',array($post->id),array('class'=>'btn btn-primary btn-block')) }}
+                        </div>
+                        <div class="col-sm-6">
+                            {{ Form::open(['route'=>['posts.destroy',$post->id],'method'=>'DELETE']) }}
+                            {{ Form::submit('Delete',['class'=>'btn btn-danger btn-block']) }}
+                            {{ Form::close() }}
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        {{ Form::open(['route'=>['posts.destroy',$post->id],'method'=>'DELETE']) }}
-                        {{ Form::submit('Delete',['class'=>'btn btn-danger btn-block']) }}
-                        {{ Form::close() }}
-                    </div>
-                </div>
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         {{ Html::linkRoute('posts.index','<< Show All Posts',null,['class'=>'btn btn-default btn-block btn-h1-spacing']) }}
