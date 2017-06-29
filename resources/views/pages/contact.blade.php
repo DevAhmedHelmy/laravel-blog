@@ -5,21 +5,22 @@
         <div class="col-md-12">
             <h1>Contact Me</h1>
          <hr>
-         <form>
+         {!! Form::open(['route'=>'contact']) !!}
             <div class="form-group">
-                <label name="email">Email:</label>
-                <input id="email" name="email" class="form-control">
+                {{ Form::label('email','Email:') }}
+                {{ Form::text('email',null,['class'=>'form-control','placeholder'=>'Email']) }}
             </div>
             <div class="form-group">
-                <label name="subject">Subject:</label>
-                <input id="subject" name="subject" class="form-control">
+                {{ Form::label('subject','Subject:') }}
+                {{ Form::text('subject',null,['class'=>'form-control','placeholder'=>'Subject']) }}
             </div>
             <div class="form-group">
-                <label name="messsage">Subject:</label>
-                <textarea id="messsage" name="messsage" class="form-control">Type your message here....</textarea>
+                {{ Form::label('message','Messsage:') }}
+                {{ Form::textarea('message',null,['class'=>'form-control','placeholder'=>'Type your message here....']) }}
             </div>
-            <input type="submit" value="Send Message" class="btn btn-success" >
-         </form>
-          </div>
+            {{ Form::submit('Send Message',['class'=>'btn btn-success']) }}
+
+         {!! Form::close() !!}
+         </div>
     </div>
 @endsection
