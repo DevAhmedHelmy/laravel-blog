@@ -5,8 +5,13 @@
         <div class="col-md-8">
             <h1>{{ $tag->name }} Tag <small>{{ $tag->posts()->count() }} Posts</small></h1>
         </div>
-        <div class="col-md-2 col-md-offset-2">
+        <div class="col-md-2">
             {{ Html::linkRoute('tags.edit','Edit Tag',[$tag->id],['class'=>'btn btn-primary pull-right btn-block','style'=>'margin-top:20px']) }}
+        </div>
+        <div class="col-md-2">
+            {!! Form::open(['route'=>['tags.destroy',$tag->id],'method'=>'DELETE']) !!}
+                {{ Form::submit('Delete Tag',['class'=>'btn btn-danger btn-block','style'=>'margin-top:20px']) }}
+            {!! Form::close() !!}
         </div>
     </div>
 
@@ -38,7 +43,7 @@
                     </tbody>
                 </table>
             @else
-                <p>No Tag Found</p>
+                <p>No Post Found</p>
             @endif
         </div>
     </div>
