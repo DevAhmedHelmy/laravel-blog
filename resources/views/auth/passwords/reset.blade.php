@@ -7,7 +7,7 @@
                 <div class="panel-heading">Reset Password</div>
                 <div class="panel-body">
                 
-                    {!! Form::open(['url'=>'password/reset']) !!}
+                    {{ Form::open(['url'=>'password/reset']) }}
 
                         {{ Form::hidden('token',$token) }}
 
@@ -21,7 +21,7 @@
                         {{ Form::password('password_confirmation',['class'=>'form-control']) }}
 
                         {{ Form::submit('Reset Pasword',['class'=>'btn btn-primary']) }}
-                    {!! Form::close() !!}
+                    {{ Form::close() }}
                 </div>
              </div>
         </div>

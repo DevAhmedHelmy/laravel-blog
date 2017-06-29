@@ -42,7 +42,7 @@ class CommentsController extends Controller
     public function store(Request $request,$post_id)
     {
         $this->validate($request,[
-            'name'=>'required|max:255',
+            'name'=>'required|alpha_dash|max:255',
             'email'=>'required|email|max:255',
             'comment'=>'required|min:5|max:2000',
         ]);

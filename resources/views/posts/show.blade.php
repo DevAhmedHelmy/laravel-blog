@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8">        
             <h1>{{ $post->title }}</h1>
-            <p class="lead">{{ $post->body }}</p>
+            <p class="lead">{!! $post->body !!}</p>
             <hr>
             <div class="tags">
                 @if(count($post->tags)>0)
@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ $comment->name }}</td>
                                 <td>{{ $comment->email }}</td>
-                                <td>{{ substr($comment->comment,0,30) }}{{ (strlen($comment->comment)>30)?'...':'' }}</td>
+                                <td>{{ substr(strip_tags($comment->comment),0,30) }}{{ (strlen(strip_tags($comment->comment))>30)?'...':'' }}</td>
                                 <td>
                                     <a href="{{ route('comments.edit',[$comment->id]) }}" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
                                      <a href="{{ route('comments.delete',[$comment->id]) }}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
@@ -70,17 +70,17 @@
                 <hr>
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Html::linkRoute('posts.edit','Edit',array($post->id),array('class'=>'btn btn-primary btn-block')) !!}
+                        {{ Html::linkRoute('posts.edit','Edit',array($post->id),array('class'=>'btn btn-primary btn-block')) }}
                     </div>
                     <div class="col-sm-6">
-                        {!! Form::open(['route'=>['posts.destroy',$post->id],'method'=>'DELETE']) !!}
-                        {!! Form::submit('Delete',['class'=>'btn btn-danger btn-block']) !!}
-                        {!! Form::close() !!}
+                        {{ Form::open(['route'=>['posts.destroy',$post->id],'method'=>'DELETE']) }}
+                        {{ Form::submit('Delete',['class'=>'btn btn-danger btn-block']) }}
+                        {{ Form::close() }}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        {!! Html::linkRoute('posts.index','<< Show All Posts',null,['class'=>'btn btn-default btn-block btn-h1-spacing']) !!}
+                        {{ Html::linkRoute('posts.index','<< Show All Posts',null,['class'=>'btn btn-default btn-block btn-h1-spacing']) }}
                     </div>
                 </div>
             </div>

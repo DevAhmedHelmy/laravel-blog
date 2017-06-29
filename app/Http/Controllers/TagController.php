@@ -42,7 +42,7 @@ class TagController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required|max:255'
+            'name'=>'required|alpha_dash|max:255'
         ]);
 
         $tag=new Tag;
@@ -87,7 +87,7 @@ class TagController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name'=>'required|max:255'
+            'name'=>'required|alpha_dash|max:255'
         ]);
 
         $tag=Tag::find($id);

@@ -42,7 +42,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required|max:255'
+            'name'=>'required|alpha_dash|max:255'
         ]);
 
         $cat=new Category();

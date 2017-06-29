@@ -9,9 +9,9 @@
             {{ Html::linkRoute('tags.edit','Edit Tag',[$tag->id],['class'=>'btn btn-primary pull-right btn-block','style'=>'margin-top:20px']) }}
         </div>
         <div class="col-md-2">
-            {!! Form::open(['route'=>['tags.destroy',$tag->id],'method'=>'DELETE']) !!}
+            {{ Form::open(['route'=>['tags.destroy',$tag->id],'method'=>'DELETE']) }}
                 {{ Form::submit('Delete Tag',['class'=>'btn btn-danger btn-block','style'=>'margin-top:20px']) }}
-            {!! Form::close() !!}
+            {{ Form::close() }}
         </div>
     </div>
 

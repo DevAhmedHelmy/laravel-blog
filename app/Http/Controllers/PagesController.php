@@ -38,7 +38,7 @@ class PagesController extends Controller
     {
         $this->validate($request,[
             'email'=>'required|email',
-            'subject'=>'min:3',
+            'subject'=>'required|alpha_dash|min:3',
             'message'=>'min:5'
         ]);
         

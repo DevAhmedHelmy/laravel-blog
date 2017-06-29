@@ -1,8 +1,8 @@
 @extends('main')
 @section('title','View Post')
 @section('stylesheet')
-    {!! Html::style('css.parsley.css') !!}
-    {!! Html::style('css.select2.min.css') !!}
+    {{ Html::style('css.parsley.css') }}
+    {{ Html::style('css.select2.min.css') }}
 
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>
@@ -16,7 +16,7 @@
 @section('content')
 
     <div class="row">
-        {!! Form::model($post,['route'=>['posts.update',$post->id],'method'=>'PUT','data-parsley-validate'=>'']) !!}
+        {{ Form::model($post,['route'=>['posts.update',$post->id],'method'=>'PUT','data-parsley-validate'=>'']) }}
             <div class="col-md-8">  
                 {{ Form::label('title','Title:') }}      
                 {{ Form::text('title',null,array('class'=>'form-control input-lg','required'=>'','maxlength'=>"255")) }}
@@ -48,20 +48,20 @@
                     <hr>
                     <div class="row">
                         <div class="col-sm-6">
-                            {!! Html::linkRoute('posts.show','Cancel',array($post->id),array('class'=>'btn btn-danger btn-block')) !!}
+                            {{ Html::linkRoute('posts.show','Cancel',array($post->id),array('class'=>'btn btn-danger btn-block')) }}
                         </div>
                         <div class="col-sm-6">
-                            {!! Form::submit('Save Changes',['class'=>'btn btn-success btn-block']) !!}
+                            {{ Form::submit('Save Changes',['class'=>'btn btn-success btn-block']) }}
                         </div>
                     </div>
                 </div>
             </div>
-         {!! Form::close() !!}
+         {{ Form::close() }}
     </div>
 @endsection()
 @section('script')
-    {!! Html::script('js.parsley.min.js') !!}
-    {!! Html::script('js.select2.min.js') !!}
+    {{ Html::script('js.parsley.min.js') }}
+    {{ Html::script('js.select2.min.js') }}
     <script type="text/javascript">
         $(".select2-multi").select2();
     </script>

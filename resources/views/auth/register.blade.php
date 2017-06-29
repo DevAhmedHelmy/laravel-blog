@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            {!! Form::open(['route'=>'register']) !!}
+            {{ Form::open(['route'=>'register']) }}
                 {{ Form::label('name','Name:') }}
                 {{ Form::text('name',null,['class'=>'form-control']) }}
 
@@ -17,7 +17,7 @@
                 {{ Form::password('password_confirmation',['class'=>'form-control']) }}
 
                 {{ Form::submit('Register',['class'=>'btn btn-primary btn-block form-spacing-top']) }}
-            {!! Form::close() !!}
+            {{ Form::close() }}
         </div>
     </div>
 @endsection

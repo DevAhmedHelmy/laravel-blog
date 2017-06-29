@@ -12,8 +12,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h1>{{ $post->title }}</h1>
-            <p>{{ $post->body }}</p>
+            <h1>{{$post->title }}</h1>
+            <p>{!! $post->body !!}</p>
             <hr>
             <p>Posted In: {{ $post->category->name }}</p>
         </div>
@@ -29,14 +29,14 @@
                @foreach($post->comments as $comment)
                     <div class="comment">
                         <div class="author-info">
-                        <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(trim($comment->email))) }}?s=50&d=wavatar" alt="" class="author-image">
+                        <img src="https://www.gravatar.com/avatar/{!! md5(strtolower(trim($comment->email))) !!}?s=50&d=wavatar" alt="" class="author-image">
                             <div class="author-name">
                                 <h4>{{ $comment->name }}</h4>
                                 <p class="author-time">{{ date('F nS, Y - g:ia',strtotime($comment->created_at)) }}</p>
                             </div>
                         </div>
                         <div class="comment-content">
-                            {{ $comment->comment }}
+                            {!! $comment->comment !!}
                         </div>
                     </div>
                @endforeach
@@ -48,7 +48,7 @@
 
     <div class="row">
         <div id="comment-form" class="col-md-8 col-md-offset-2" style="margin-top:50px">
-            {!! Form::open(['route'=>['comments.store',$post->id]]) !!}
+            {{ Form::open(['route'=>['comments.store',$post->id]]) }}
                 <div class="row">
                     <div class="col-md-6">
                         {{ Form::label('name','Name:') }}
@@ -65,7 +65,7 @@
                         {{ Form::submit('Add Comment',['class'=>'btn btn-success btn-block','style'=>'margin-top:25px']) }}
                     </div>
                 </div>
-            {!! Form::close() !!}
+            {{ Form::close() }}
         </div>
     </div>
 @endsection

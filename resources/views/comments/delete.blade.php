@@ -7,7 +7,7 @@
             <p>
                 <strong>Name:</strong> {{ $comment->name }}<br />
                 <strong>Email:</strong> {{ $comment->email }}<br />
-                <strong>Comment:</strong> {{ $comment->comment }}
+                <strong>Comment:</strong> {!! $comment->comment !!}
             </p>  
             {{ Form::Model($comment,['route'=>['comments.destroy',$comment->id],'method'=>'DELETE']) }}
                 {{ Form::submit('YES DELETE THIS COMMENT',['class'=>'btn btn-danger btn-block','style'=>'margin-top:20px']) }}

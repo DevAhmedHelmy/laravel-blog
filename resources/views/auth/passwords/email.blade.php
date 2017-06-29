@@ -11,13 +11,13 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                    {!! Form::open(['url'=>'password/email']) !!}
+                    {{ Form::open(['url'=>'password/email']) }}
 
                         {{ Form::label('email','Email Address:') }}
                         {{ Form::email('email',null,['class'=>'form-control']) }}
 
                         {{ Form::submit('Reset Pasword',['class'=>'btn btn-primary']) }}
-                    {!! Form::close() !!}
+                    {{ Form::close() }}
                 </div>
              </div>
         </div>

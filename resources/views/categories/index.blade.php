@@ -28,13 +28,13 @@
 
         <div class="col-md-3">
             <div class="well">
-                {!! Form::open(['route'=>'categories.store']) !!}
+                {{ Form::open(['route'=>'categories.store']) }}
                     <h2>New Category</h2>
                     {{ Form::label('name','Name:') }}
                     {{ Form::text('name',null,['class'=>'form-control']) }}
 
                     {{ Form::submit('Create New Category',['class'=>'btn btn-primary btn-block btn-h1-spacing']) }}
-                {!! Form::close() !!}
+                {{ Form::close()}}
             </div>
         </div>
     </div>
