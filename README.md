@@ -23,26 +23,26 @@ Laravel Blog
     php artisan serve
 
 ```
-#### 4rth video
+#### 4
 ```php
     //creating controller via artisan
     php artisan make:controller PagesController
 
 ```
 
-#### 5^1/2th video
+#### 5^1/2
 
 - bootstrap link
 [http://getbootstrap.com/components](http://getbootstrap.com/components)
 
-#### 8th video
+#### 8
 ```php
     //creating model with migration via artisan
     php artisan make:model Post --migration
     //or only migration
     php artisan make:migration create_posts_table
 ```
-#### 9th video
+#### 9
 ```php
     //setting default string length in 'app/Providers/AppServicePorvider.php'
     //before we get errors
@@ -55,7 +55,7 @@ Laravel Blog
     //migrate via artisan
     php artisan migrate
 ```
-#### 10th video
+#### 10
 ```php
     //via artisan creating controller with CRUD
      php artisan make:controller PostController --resource
@@ -80,7 +80,7 @@ Laravel Blog
     +--------+-----------+-------------------+---------------+-------------------------------------------------+--------------+
 ```
 
-#### 11th video
+#### 11
 ```php
     //go to laravel collective website
     https://laravelcollective.com/
@@ -106,7 +106,7 @@ Laravel Blog
         // ...
     ],
 ```
-#### 22th video
+#### 22
 ```php
     //try to search in laravel documentation for dropping column (maybe online doc updated)
 
@@ -127,16 +127,16 @@ Laravel Blog
     php artisan migrate:refresh
 
 ```
-#### 27th video
+#### 27
 ```php
     //I've used latest code of laravel
 ```
 
-#### 30th video
+#### 30
 -   use this as email testing for reset password
 -   https://mailtrap.io
 
-#### 30.5th video
+#### 30.5
 ```php
     // for genarating controllers, views for authintication
     php artisan make:auth
@@ -145,20 +145,20 @@ Laravel Blog
     php artisan migrate
 ```
 
-#### 31th video
+#### 31
 ```php
     //creating model with migration via artisan with table name
     php artisan make:migration create_categories_table --create=categories
     //add column with existing table
     php artisan make:migration add_category_id_to_posts --table=posts
 ```
-#### 32th video
+#### 32
 ```php
     // exclude one route
     Route::resource('categories','CategoryController',['except'=>['create']]);
 ```
 
-#### 37th
+#### 37
 ```php
     //multiple select js
     https://github.com/select2/select2
@@ -167,3 +167,6 @@ Laravel Blog
     dist/css/select2.min.css
     dist/js/select2.min.js
 ```
+#### 41
+- I just use id not email to refence a user from comments
+[my suggest from original creator](https://github.com/jacurtis/laravel-blog-tutorial/issues/18)
