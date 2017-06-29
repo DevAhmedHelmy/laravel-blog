@@ -16,7 +16,7 @@
                         @foreach($tags as $tag)
                             <tr>
                                 <td>{{ $tag->id }}</td>
-                                <td>{{ $tag->name }}</td>
+                                <td>{{ Html::linkRoute('tags.show',$tag->name,[$tag->id]) }}</td>
                             </tr>
                         @endforeach
                     </tbody>
