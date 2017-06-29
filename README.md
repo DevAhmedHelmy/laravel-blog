@@ -167,3 +167,7 @@ Laravel Blog
     dist/css/select2.min.css
     dist/js/select2.min.js
 ```
+
+#### 41.5
+- image src sample
+- https://en.gravatar.com/site/implement/images/
