@@ -77,9 +77,9 @@ class PostController extends Controller
         $post->user()->associate($user);
 
         // image
-        if($request->hasFile('featured_image'))
+        if($request->hasFile('image'))
         {
-            $image=$request->featured_image;
+            $image=$request->image;
             $fileName=time().'.'.$image->getClientOriginalExtension();
             $location=public_path('images/'.$fileName);
 
