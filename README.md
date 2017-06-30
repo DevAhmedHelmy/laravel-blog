@@ -6,13 +6,13 @@ Laravel Blog
 ### The last commit relate on playlist is video part 47 
 - branch [version1](https://github.com/lloricode/laravel-blog/tree/version1)
 
-# validation library used
+### validation library used
 - http://parsleyjs.org/
 
-# Laravel Framework
+### Laravel Framework
 - 5.4.2
 
-#### 1st video
+### 1st video
 ```php
     //installing laravel via composer
     composer create-project --prefer-dist laravel/laravel laravel-blog
@@ -26,26 +26,26 @@ Laravel Blog
     php artisan serve
 
 ```
-#### 4
+### 4
 ```php
     //creating controller via artisan
     php artisan make:controller PagesController
 
 ```
 
-#### 5^1/2
+### 5.5
 
 - bootstrap link
 [http://getbootstrap.com/components](http://getbootstrap.com/components)
 
-#### 8
+### 8
 ```php
     //creating model with migration via artisan
     php artisan make:model Post --migration
     //or only migration
     php artisan make:migration create_posts_table
 ```
-#### 9
+### 9
 ```php
     //setting default string length in 'app/Providers/AppServicePorvider.php'
     //before we get errors
@@ -58,7 +58,7 @@ Laravel Blog
     //migrate via artisan
     php artisan migrate
 ```
-#### 10
+### 10
 ```php
     //via artisan creating controller with CRUD
      php artisan make:controller PostController --resource
@@ -83,7 +83,7 @@ Laravel Blog
     +--------+-----------+-------------------+---------------+-------------------------------------------------+--------------+
 ```
 
-#### 11
+### 11
 ```php
     //go to laravel collective website
     https://laravelcollective.com/
@@ -109,7 +109,7 @@ Laravel Blog
         // ...
     ],
 ```
-#### 22
+### 22
 ```php
     //try to search in laravel documentation for dropping column (maybe online doc updated)
 
@@ -130,16 +130,16 @@ Laravel Blog
     php artisan migrate:refresh
 
 ```
-#### 27
+### 27
 ```php
     //I've used latest code of laravel
 ```
 
-#### 30
+### 30
 -   use this as email testing for reset password
 -   https://mailtrap.io
 
-#### 30.5
+### 30.5
 ```php
     // for genarating controllers, views for authintication
     php artisan make:auth
@@ -148,20 +148,20 @@ Laravel Blog
     php artisan migrate
 ```
 
-#### 31
+### 31
 ```php
     //creating model with migration via artisan with table name
     php artisan make:migration create_categories_table --create=categories
     //add column with existing table
     php artisan make:migration add_category_id_to_posts --table=posts
 ```
-#### 32
+### 32
 ```php
     // exclude one route
     Route::resource('categories','CategoryController',['except'=>['create']]);
 ```
 
-#### 37
+### 37
 ```php
     //multiple select js
     https://github.com/select2/select2
@@ -171,18 +171,18 @@ Laravel Blog
     dist/js/select2.min.js
 ```
 
-#### 41.5
+### 41.5
 - image src sample
 - https://en.gravatar.com/site/implement/images/
 
-#### 43
+### 43
 - doc editor
 - https://www.tinymce.com/docs/get-started/basic-setup/
 
-#### 45
+### 45
 - security
 - https://github.com/mewebstudio/Purifier
 
-#### 46
+### 46
 - image upload handler
 - http://image.intervention.io/
