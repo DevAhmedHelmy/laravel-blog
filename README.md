@@ -179,3 +179,7 @@ Laravel Blog
 #### 45
 - security
 - https://github.com/mewebstudio/Purifier
+
+#### 46
+- image upload handler
+- http://image.intervention.io/
