@@ -32,6 +32,7 @@
                 {{ Form::label('tags','Tags:') }}
                 {{ Form::select('tags[]',$tagsdropdown, null, ['class'=>'form-control select2-multi','multiple'=>'multiple']) }}
 
+
                 {{ Form::label('image','Image:') }}
                 {{ Form::file('image') }}
                 

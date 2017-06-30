@@ -11,6 +11,7 @@ use App\User;
 use Auth;
 use Session;
 use Purifier;
+use Image;
 
 class PostController extends Controller
 {
@@ -74,6 +75,18 @@ class PostController extends Controller
         $post->body=Purifier::clean($request->body);
 
         $post->user()->associate($user);
+
+        // image
+        if($request->hasFile('image'))
+        {
+            $image=$request->image;
+            $fileName=time().'.'.$image->getClientOriginalExtension();
+            $location=public_path('images/'.$fileName);
+
+            Image::make($image)->resize(800,400)->save($location);
+
+            $post->image=$fileName;
+        }
 
         $post->save();
 
