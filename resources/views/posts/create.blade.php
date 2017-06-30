@@ -32,9 +32,10 @@
                 {{ Form::label('tags','Tags:') }}
                 {{ Form::select('tags[]',$tagsdropdown, null, ['class'=>'form-control select2-multi','multiple'=>'multiple']) }}
 
-                {{ Form::label('featured_image','Upload Featured Image') }}
-                {{ Form::file('featured_image') }}
 
+                {{ Form::label('image','Image:') }}
+                {{ Form::file('image') }}
+                
                 {{ Form::label('body','Body:') }}
                 {{ Form::textarea('body',null,array('class'=>'form-control')) }}
 
