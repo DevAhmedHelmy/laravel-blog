@@ -18,7 +18,7 @@
         <div class="col-md-8 col-md-offset-2">
             <h1>Create New Post</h1>
             <hr>
-            {{ Form::open(['route' => 'posts.store','data-parsley-validate'=>'']) }}
+            {{ Form::open(['route' => 'posts.store','data-parsley-validate'=>'','files'=>TRUE]) }}
 
                 {{ Form::label('title','Title:') }}
                 {{ Form::text('title',null,array('class'=>'form-control','required'=>'','maxlength'=>"255")) }}
@@ -31,6 +31,9 @@
 
                 {{ Form::label('tags','Tags:') }}
                 {{ Form::select('tags[]',$tagsdropdown, null, ['class'=>'form-control select2-multi','multiple'=>'multiple']) }}
+
+                {{ Form::label('featured_image','Upload Featured Image') }}
+                {{ Form::file('featured_image') }}
 
                 {{ Form::label('body','Body:') }}
                 {{ Form::textarea('body',null,array('class'=>'form-control')) }}
