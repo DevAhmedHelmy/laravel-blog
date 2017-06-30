@@ -1,15 +1,15 @@
 # laravel-blog
 Laravel Blog 
 
-### I have learned this laravel blog from this youtube playlist [https://www.youtube.com/playlist?list=PLwAKR305CRO-Q90J---jXVzbOd4CDRbVx](https://www.youtube.com/playlist?list=PLwAKR305CRO-Q90J---jXVzbOd4CDRbVx) by [J. Alexander Curtis](https://github.com/jacurtis)
+## I have learned this laravel blog from this youtube playlist [https://www.youtube.com/playlist?list=PLwAKR305CRO-Q90J---jXVzbOd4CDRbVx](https://www.youtube.com/playlist?list=PLwAKR305CRO-Q90J---jXVzbOd4CDRbVx) by [J. Alexander Curtis](https://github.com/jacurtis)
 
-## The last commit relate on playlist is video part 47 
+### The last commit relate on playlist is video part 47 
 - branch [version1](https://github.com/lloricode/laravel-blog/tree/version1)
 
-## validation library used
+# validation library used
 - http://parsleyjs.org/
 
-## Laravel Framework
+# Laravel Framework
 - 5.4.2
 
 #### 1st video
