@@ -12,6 +12,7 @@ use Auth;
 use Session;
 use Purifier;
 use Image;
+use Storage;
 
 class PostController extends Controller
 {
@@ -61,6 +62,7 @@ class PostController extends Controller
         $this->validate($request,array(
             'title'=>'required|string|max:255',
             'slug'=>'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'image'=>'sometimes|image',
             'category_id'=>'required|integer',
             'body'=>'required'
         ));
@@ -141,22 +143,16 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $slugUniqueValdation='|unique:posts,slug';
-
             $post=Post::find($id);
 
             if(Auth::user()->id !== $post->user_id){
                 return redirect()->route('posts.index');
             }
-
-            if($post->slug == $request->slug){
-                $slugUniqueValdation='';
-            }
             
             // validate the data
             $this->validate($request,array(
                 'title'=>'required|string|max:255',
-                'slug'=>'required|alpha_dash|min:5|max:255'.$slugUniqueValdation,
+                'slug'=>"required|alpha_dash|min:5|max:255|unique:posts,slug,$id",
                 'category_id'=>'required|integer',
                 'body'=>'required'
             ));
@@ -166,6 +162,26 @@ class PostController extends Controller
             $post->body=Purifier::clean($request->input('body'));
             $post->category_id=$request->input('category_id');
             $post->slug=$request->input('slug');
+
+            if($request->hasFile('image'))
+            {
+                // add the new photo
+                $image=$request->image;
+                $fileName=time().'.'.$image->getClientOriginalExtension();
+                $location=public_path('images/'.$fileName);
+
+                Image::make($image)->save($location);
+
+                $olfilename=$post->image;
+
+                // update the databse
+                $post->image=$fileName;
+
+                // delete the old photo
+                Storage::delete($olfilename);
+
+            }
+
             $post->save();
 
             $post->tags()->sync($request->tags);//wheter to override the extisting association //2ns param default TRUE
@@ -193,6 +209,7 @@ class PostController extends Controller
 
         //delete data related
         $post->tags()->detach();
+        Storage::delete($post->image);
 
         $post->delete();
         Session::flash('success','The post successfully deleted!');

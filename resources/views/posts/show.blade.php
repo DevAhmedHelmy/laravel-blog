@@ -3,7 +3,8 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-8">        
+        <div class="col-md-8">    
+            <img src="{{ asset('images/'.$post->image) }}" alt="no image" width="800" />    
             <h1>{{ $post->title }}</h1>
             <p class="lead">{!! $post->body !!}</p>
             <hr>

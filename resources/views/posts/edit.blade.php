@@ -16,7 +16,7 @@
 @section('content')
 
     <div class="row">
-        {{ Form::model($post,['route'=>['posts.update',$post->id],'method'=>'PUT','data-parsley-validate'=>'']) }}
+        {{ Form::model($post,['route'=>['posts.update',$post->id],'method'=>'PUT','data-parsley-validate'=>'','files'=>TRUE]) }}
             <div class="col-md-8">  
                 {{ Form::label('title','Title:') }}      
                 {{ Form::text('title',null,array('class'=>'form-control input-lg','required'=>'','maxlength'=>"255")) }}
@@ -30,6 +30,8 @@
                 {{ Form::label('tags','Tags:') }}
                 {{ Form::select('tags[]',$tagsdropdown, null, ['class'=>'form-control select2-multi','multiple'=>'multiple']) }}
 
+                {{ Form::label('image','Image:') }}
+                {{ Form::file('image') }}
 
                 {{ Form::label('body','Body:',['class'=>'form-spaceing-top']) }}
                 {{ Form::textarea('body',null,array('class'=>'form-control','required'=>'')) }}
