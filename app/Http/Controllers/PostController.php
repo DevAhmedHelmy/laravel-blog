@@ -61,6 +61,7 @@ class PostController extends Controller
             'title'=>'required|string|max:255',
             'slug'=>'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'category_id'=>'required|integer',
+            'image'=>'image|nullable|max:1999',// under 2mb
             'body'=>'required'
         ));
 
@@ -74,6 +75,21 @@ class PostController extends Controller
         $post->body=Purifier::clean($request->body);
 
         $post->user()->associate($user);
+
+        if($request->hasFile('image')){
+            // Get File name with extension
+            $fileNameWithExt=$request->file('image')->getClientOriginalName();
+            // Get just filename
+            $filename=pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //Get just extensiom
+            $extension =$request->file('image')->getClientOriginalExtension();
+            // FIle name to store
+            $fileNameToStore=md5($filename).time().'.'.$extension;
+            // Upload the image
+            $fileNameToStore=str_replace(' ','_',$fileNameToStore);
+            $request->file('image')->storeAs('public/images',$fileNameToStore);
+            $post->image=$fileNameToStore;
+        }
 
         $post->save();
 
